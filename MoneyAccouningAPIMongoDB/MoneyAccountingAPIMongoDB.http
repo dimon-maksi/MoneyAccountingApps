@@ -1,0 +1,6 @@
+@MoneyAccountingAPIMongoDB_HostAddress = http://localhost:5113
+
+GET {{MoneyAccountingAPIMongoDB_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

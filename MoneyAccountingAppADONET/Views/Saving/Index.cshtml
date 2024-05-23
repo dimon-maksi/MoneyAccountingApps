@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MoneyAccountingAppADONET.Models.Saving>
+
+<h2>Saving</h2>
+
+<p>
+    <a class="btn btn-primary" asp-controller="Saving" asp-action="Create">Add New Saving</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Sum</th>
+            <th>Date</th>
+            <th>AccountId</th>
+            <th>CategoryId</th>
+            <th>Goal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Sum</td>
+                <td>@item.Date</td>
+                <td>@item.AccountId</td>
+                <td>@item.CategoryId</td>
+                <td>@item.Goal</td>
+                <td>
+                    <form asp-action="Delete" method="post" asp-controller="Saving">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

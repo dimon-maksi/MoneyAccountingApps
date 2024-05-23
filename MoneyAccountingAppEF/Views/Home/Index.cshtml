@@ -1,0 +1,50 @@
+﻿@model Tuple<IEnumerable<MoneyAccountingAppEF.Models.Account>, IEnumerable<MoneyAccountingAppEF.Models.Category>>
+
+
+<h1>Accounts</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Total Expenses</th>
+            <th>Total Incomes</th>
+            <th>Total Savings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model.Item1)
+        {
+            <tr>
+                <td>@account.Name</td>
+                <td>@account.Balance</td>
+                <td>@account.Expenses.Sum(e => e.Sum)</td>
+                <td>@account.Incomes.Sum(i => i.Sum)</td>
+                <td>@account.Savings.Sum(s => s.Sum)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h1>Categories</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Total Expenses</th>
+            <th>Total Incomes</th>
+            <th>Total Savings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Item2)
+        {
+            <tr>
+                <td>@category.Name</td>
+                <td>@category.Expenses.Sum(e => e.Sum)</td>
+                <td>@category.Incomes.Sum(i => i.Sum)</td>
+                <td>@category.Savings.Sum(s => s.Sum)</td>
+            </tr>
+        }
+    </tbody>
+</table>

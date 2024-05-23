@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MoneyAccountingAppEF.Models.Category>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Total Expenses</th>
+            <th>Total Incomes</th>
+            <th>Total Savings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Name</td>
+                <td>@category.Expenses.Sum(e => e.Sum)</td>
+                <td>@category.Incomes.Sum(i => i.Sum)</td>
+                <td>@category.Savings.Sum(s => s.Sum)</td>
+            </tr>
+        }
+    </tbody>
+</table>

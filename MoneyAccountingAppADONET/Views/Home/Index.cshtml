@@ -1,0 +1,55 @@
+﻿@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h2>Account Summary</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account</th>
+            <th>Balance</th>
+            <th>Total Incomes</th>
+            <th>Total Expenses</th>
+            <th>Total Savings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var accountSummary in Model.AccountSummaries)
+        {
+            <tr>
+                <td>@accountSummary.AccountName</td>
+                <td>@accountSummary.Balance</td>
+                <td>@accountSummary.TotalIncomes</td>
+                <td>@accountSummary.TotalExpenses</td>
+                <td>@accountSummary.TotalSavings</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Category Summary</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Total Incomes</th>
+            <th>Total Expenses</th>
+            <th>Total Savings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categorySummary in Model.CategorySummaries)
+        {
+            <tr>
+                <td>@categorySummary.CategoryName</td>
+                <td>@categorySummary.TotalIncomes</td>
+                <td>@categorySummary.TotalExpenses</td>
+                <td>@categorySummary.TotalSavings</td>
+            </tr>
+        }
+    </tbody>
+</table>
